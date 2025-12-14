@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<windows.h>
+#include<time.h>
+#include<stdbool.h>
+#include<ctype.h>
+char computerChoice(){
+    int random=(rand()%3)+1;
+    switch(random){
+        case 1:
+        return 'S';
+        case 2:
+        return 'P';
+        case 3:
+        return 'R';
+    }}
+    void checkWin(char player, char computer){
+     if(player==computer){
+        printf("It's a TIE!");
+     }
+     else if(player=='R'&&computer=='S'){
+        printf("You WIN!");
+     }
+     else if(player=='R'&&computer=='P'){
+        printf("Computer WINS!");
+     }
+     else if(player=='S'&&computer=='R'){
+        printf("Computer WINS!");
+     }
+     else if(player=='S'&&computer=='P'){
+        printf("You WIN!");
+     }
+     else if(player=='P'&&computer=='R'){
+        printf("You WIN!");
+     }
+     else if(player=='P'&&computer=='S'){
+        printf("Computer WINS!");
+     }
+    }
+
+int main(){
+   srand(time(NULL));
+    printf("Welcome to Rock Paper Scissors");
+    char pChoice,cChoice;
+    while(1){
+        printf("Enter: \n's' for scissors,\n'r' for rock,\n'p' for paper,\nType 'q' to exit: ");
+        scanf(" %c",&pChoice);
+        pChoice=toupper(pChoice);
+        cChoice=computerChoice();
+        if(pChoice=='Q'){
+            break;
+        }
+        else {
+            checkWin(pChoice,cChoice);
+            printf("\n");
+        }
+    }
+    return 0;
+
+}
+
